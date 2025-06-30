@@ -116,12 +116,60 @@ score = 0.5 × appearance_similarity
 ```
 
 ---
+## 📌 Future Improvements
+
+Here are some planned enhancements to improve accuracy, robustness, and functionality:
+
+- ✅ **Goalkeeper Detection**  
+  Incorporate logic to distinguish goalkeepers using jersey color patterns and spatial positioning.
+
+- 🎯 **Ball Tracking & Interaction Analysis**  
+  Extend detection to track the ball consistently and detect player-ball interactions (e.g., passes, goals).
+
+- 🧠 **Jersey Number Recognition (OCR)**  
+  Use OCR (like EasyOCR or Tesseract) to extract jersey numbers and use them for better re-identification.
+
+- 📈 **Better Feature Matching**  
+  Replace basic cosine similarity with advanced metric learning or clustering for improved ReID matching.
+
+- 🎥 **Real-Time Inference Pipeline**  
+  Optimize the pipeline for real-time processing using TensorRT, ONNX, or streaming video input (e.g., webcam).
+
+- 🔁 **Model Selection UI**  
+  Build a Streamlit or Gradio interface to upload videos and select detection/re-ID model configurations dynamically.
+
+- 🧩 **Modular Configuration System**  
+  Migrate static paths and constants (e.g., confidence threshold, frame repeat) to a config file (YAML/JSON).
+
+---
 
 ##❗ Notes
 
 - Avoid pushing large files (>100MB) like `.pt` models or `.mp4` videos to GitHub. Use [Git LFS](https://git-lfs.github.com) if needed.
 - `deep_sort_pytorch/` should either be cloned as a submodule or copied manually.
 - `__pycache__/` folders should be excluded from version control via `.gitignore`.
+
+
+---
+
+## 📦 Model Weights
+
+The detection model (`soccer_yolov11.pt`) is too large to be stored directly in this repository due to GitHub’s 100MB file size limit.
+
+🔗 **Download Model (YOLOv11 fine-tuned for Soccer Player & Ball Detection)**  
+👉 [Click here to download `soccer_yolov11.pt`](https://drive.google.com/uc?export=download&id=1kQCbXQqg3C9DXtllPS5WgMVOl3kaRkYH)
+
+Once downloaded, **place the file at the following path** in your project directory:
+
+```bash
+Scocer ReIdentification/soccer_yolov11.pt
+```
+⚠️ **Important:** Ensure the filename and path are exactly the same as referenced in `model2.py`.  
+If you place it elsewhere or rename it, update the `MODEL_PATH` variable accordingly:
+
+```python
+MODEL_PATH = "Scocer ReIdentification/soccer_yolov11.pt"
+```
 
 ---
 
